@@ -32,3 +32,5 @@ jobs:
     - name: Push image
       run: |
         docker push diogoazevedoo/pass-in-api:${{ steps.generate_sha.outputs.sha }}
+        docker tag diogoazevedoo/pass-in-api:${{ steps.generate_sha.outputs.sha }} diogoazevedoo/pass-in-api:latest
+        docker push diogoazevedoo/pass-in-api:latest
