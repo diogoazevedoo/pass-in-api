@@ -2,7 +2,7 @@ replicaCount: 5
 image:
   repository: diogoazevedoo/pass-in-api
   pullPolicy: Always
-  tag: 3b62982
+  tag: 2bae456
   port: 3333
 imagePullSecrets: []
 nameOverride: ''
