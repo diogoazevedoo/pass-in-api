@@ -34,3 +34,13 @@ jobs:
         docker push diogoazevedoo/pass-in-api:${{ steps.generate_sha.outputs.sha }}
         docker tag diogoazevedoo/pass-in-api:${{ steps.generate_sha.outputs.sha }} diogoazevedoo/pass-in-api:latest
         docker push diogoazevedoo/pass-in-api:latest
+
+    - name: Update image tag
+      uses: fjogeleit/yaml-update-action@main
+      with:
+        branch: main
+        valueFile: 'deploy/values.yaml'
+        propertyPath: 'image.tag'
+        value: ${{ steps.generate_sha.outputs.sha }}
+        commitChange: true
+        message: "new: Update tag in values helm"
